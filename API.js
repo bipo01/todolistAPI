@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(cors());
 
-app.get("/", async (req, res) => {
+app.get("/all", async (req, res) => {
     const result = await db.query("SELECT * FROM todolist");
     const data = result.rows;
 
