@@ -27,6 +27,14 @@ app.get("/all", async (req, res) => {
     res.json(data);
 });
 
+app.get("/add", (req, res) => {
+    db.query("INSERT INTO todolist (atividade) VALUES ($1)", [
+        req.query.atividade,
+    ]);
+
+    res.json(`${req.query.atividade} adicionada`);
+});
+
 app.listen(port, () => {
     console.log(`Server on port ${port}`);
 });
