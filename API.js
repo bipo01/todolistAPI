@@ -5,7 +5,7 @@ import cors from "cors";
 import env from "dotenv";
 
 const app = express();
-const port = `https://todolist-api-theta.vercel.app/`;
+const port = 4000;
 env.config();
 
 const db = new pg.Client({
