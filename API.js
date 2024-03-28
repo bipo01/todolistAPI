@@ -35,9 +35,9 @@ app.get("/add", cors(), (req, res) => {
     res.json(`${req.query.atividade} adicionada`);
 });
 
-app.get("/apagar/:id", cors(), (req, res) => {
-    db.query("DELETE FROM todolist WHERE id = $1", [req.params.id]);
-    res.json(`Atividade com ID: ${req.params.id} removida`);
+app.get("/apagar", cors(), (req, res) => {
+    db.query("DELETE FROM todolist WHERE id = $1", [req.query.id]);
+    res.json(`Atividade com ID: ${req.query.id} removida`);
 });
 
 app.listen(port, () => {
