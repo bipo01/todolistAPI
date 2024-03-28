@@ -22,6 +22,8 @@ app.get("/all", async (req, res) => {
     const result = await db.query("SELECT * FROM todolist");
     const data = result.rows;
 
+    console.log(data);
+
     res.json(data);
 });
 
