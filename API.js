@@ -40,6 +40,14 @@ app.get("/apagar", cors(), (req, res) => {
     res.json(`Atividade com ID: ${req.query.id} removida`);
 });
 
+app.get("/editar", (req, res) => {
+    db.query("UPDATE todolist SET atividade = $1 WHERE id = $2", [
+        req.query.atividade,
+        req.query.id,
+    ]);
+    res.json(`Atividade com ID: ${req.query.id} editada`);
+});
+
 app.listen(port, () => {
     console.log(`Server on port ${port}`);
 });
