@@ -27,7 +27,7 @@ app.get("/all", async (req, res) => {
     res.json(data);
 });
 
-app.get("/add", (req, res) => {
+app.get("/add", cors(), (req, res) => {
     db.query("INSERT INTO todolist (atividade) VALUES ($1)", [
         req.query.atividade,
     ]);
